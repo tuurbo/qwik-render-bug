@@ -12,33 +12,17 @@ export default component$(() => {
   return (
     <>
       <div>
-        <p>{global.count}</p>
-        <h3>Dashlane Extension</h3>
-        <p>reload page, if using Dashlane, click "click me"</p>
-        <button
-          style="margin-bottom: 10px"
-          onClick$={() => {
-            global.count = global.count + 1;
-          }}
-        >
-          click me
-        </button>
-        <div>
-          <span style="margin-right: 5px">(This will disappear)</span>
-          <InputControlBase autoComplete="postal-code" />
-        </div>
-      </div>
-      <hr style="margin: 35px 0" />
-      <div>
-        <h3>Mimic Dashlane extension</h3>
-        <p>reload page, click "prepend element", then click "click me"</p>
+        <h4>Mimic chrome extensions that inject elements</h4>
+        <p>Click "prepend element", then click "click me".</p>
+        <p>The element with text "(This will disappear)" will disappear.</p>
         <button
           style="margin-bottom: 10px; margin-right: 10px"
           onClick$={() => {
-            const container = document.getElementById('pcontainer')!;
+            const container = document.getElementById('pcontainer2')!;
             const elem = document.createElement("span");
-            elem.innerHTML = '(mimic chrome extension)';
+            elem.innerHTML = ` (injected element ${store.count}) `;
             container.insertBefore(elem, container.firstChild);
+            store.count = store.count + 1;
           }}
         >
           prepend element
@@ -51,7 +35,7 @@ export default component$(() => {
         >
           click me
         </button>
-        <div id="pcontainer">
+        <div id="pcontainer2">
           <span style="margin-right: 5px">(This will disappear)</span>
           <InputControlBase autoComplete="off" />
         </div>
