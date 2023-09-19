@@ -13,8 +13,8 @@ export default component$(() => {
     <>
       <div>
         <h4>Mimic chrome extensions that inject elements</h4>
-        <p>Click "prepend element", then click "click me".</p>
-        <p>The element with text "(This will disappear)" will disappear.</p>
+        <p>&bull; Click "prepend element", then click "click me".</p>
+        <p>&bull; The element with text "(This will disappear)" will disappear.</p>
         <button
           style="margin-bottom: 10px; margin-right: 10px"
           onClick$={() => {
@@ -36,7 +36,7 @@ export default component$(() => {
           click me
         </button>
         <div id="pcontainer2">
-          <span style="margin-right: 5px">(This will disappear)</span>
+          <span style="margin-right:5px;color:red">(This will disappear)</span>
           <InputControlBase autoComplete="off" />
         </div>
       </div>
